@@ -8,14 +8,14 @@ $title = 'Add Item';
 $itemID        = $params->get('item_id');
 $viewID        = $params->get('view');
 $type          = $params->get('type');
-$identifier    = $params->get('name_english');
-$itemName      = $params->get('name_japanese');
+$identifier    = $params->get('name_aegis');
+$itemName      = $params->get('name_english');
 $slots         = $params->get('slots');
 $npcBuy        = $params->get('npc_buy');
 $npcSell       = $params->get('npc_sell');
 $weight        = $params->get('weight');
 $attack        = $params->get('attack');
-$matk          = $params->get('matk');
+$magic_attack  = $params->get('matk');
 $defense       = $params->get('defense');
 $range         = $params->get('range');
 $weaponLevel   = $params->get('weapon_level');
@@ -59,7 +59,7 @@ if (count($_POST) && $params->get('additem')) {
 	);
 	// If renewal is enabled, sanitize matk and equipLevelMax to NULL
 	if($server->isRenewal) {
-		array_push($nullables, 'matk', 'equipLevelMax');
+		array_push($nullables, 'magic_attack', 'equipLevelMax');
 	}
 	foreach ($nullables as $nullable) {
 		if (trim($$nullable) == '') {
@@ -186,7 +186,7 @@ if (count($_POST) && $params->get('additem')) {
 					'slots'          => $slots,
 					'price_buy'      => $npcBuy,
 					'price_sell'     => $npcSell,
-					'defence'        => $defense,
+					'defense'        => $defense,
 					'`range`'        => $range,
 					'weapon_level'   => $weaponLevel,
 					'equip_level'    => $equipLevel,
@@ -197,14 +197,9 @@ if (count($_POST) && $params->get('additem')) {
 				);
 
 				if($server->isRenewal) {
-					if(!is_null($matk)) {
-						$atk = $attack .':'. $matk;
-					}
-					else {
-						$atk = $attack;
-					}
 					$vals = array_merge($vals, array(
-						'`atk:matk`' => $atk
+						'`attack`' => $attack,
+						'`magic_attack`' => $matk
 					));
 				}
 				else {

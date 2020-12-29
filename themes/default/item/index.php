@@ -178,8 +178,7 @@
 				echo htmlspecialchars($item->type)." - ".htmlspecialchars($item->subtype);
 			} else {
 				echo htmlspecialchars($item->type);
-			}
-			?>
+			} ?>
 		</td>
 		<td>
 			<?php if ($loc=$this->equipLocationCombinationText($item->location_data)): ?>

@@ -44,7 +44,12 @@
 		<th>Name</th>
 		<td><?php echo htmlspecialchars($item->name) ?></td>
 		<th>Type</th>
-		<td><?php echo $this->itemTypeText($item->type, $item->view) ?></td>
+		<td><?php if(!empty(htmlspecialchars($item->subtype))) {
+				echo htmlspecialchars($item->type)." - ".htmlspecialchars($item->subtype);
+			} else {
+				echo htmlspecialchars($item->type);
+			} ?>
+		</td>
 	</tr>
 	<tr>
 		<th>NPC Buy</th>
@@ -68,7 +73,7 @@
 		<th>Range</th>
 		<td><?php echo number_format((int)$item->range) ?></td>
 		<th>Defense</th>
-		<td><?php echo number_format((int)$item->defence) ?></td>
+		<td><?php echo number_format((int)$item->defense) ?></td>
 	</tr>
 	<tr>
 		<th>Slots</th>
@@ -91,7 +96,7 @@
 	<?php if($server->isRenewal): ?>
 	<tr>
 		<th>MATK</th>
-		<td><?php echo number_format((int)$item->matk) ?></td>
+		<td><?php echo number_format((int)$item->magic_attack) ?></td>
 		<th>Max Equip Level</th>
 		<td>
 			<?php if ($item->equip_level_max == 0): ?>
@@ -105,17 +110,21 @@
 	<tr>
 		<th>Equip Locations</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($locs=$this->equipLocations($item->equip_locations)): ?>
-				<?php echo htmlspecialchars(implode(' + ', $locs)) ?>
+			<?php if ($loc=$this->equipLocationCombinationText($item->location_data)): ?>
+				<?php if($loc == 'None'): ?>
+					<span class="not-applicable">None</span>
+				<?php else: ?>
+					<?php echo htmlspecialchars($loc) ?>
+				<?php endif; ?>
 			<?php else: ?>
-				<span class="not-applicable">None</span>
+				<span class="not-applicable">Unknown<?php echo " (".$item->location_data.")" ?></span>
 			<?php endif ?>
 		</td>
 	</tr>
 	<tr>
 		<th>Equip Upper</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($upper=$this->equipUpper($item->equip_upper)): ?>
+			<?php if ($upper=$this->equipUpper($item->class_data)): ?>
 				<?php echo htmlspecialchars(implode(' / ', $upper)) ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -125,7 +134,7 @@
 	<tr>
 		<th>Equippable Jobs</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($jobs=$this->equippableJobs($item->equip_jobs)): ?>
+			<?php if ($jobs=$this->equippableJobs($item->jobs_data, $server->isRenewal)): ?>
 				<?php echo htmlspecialchars(implode(' / ', $jobs)) ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -135,14 +144,10 @@
 	<tr>
 		<th>Equip Gender</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($item->equip_genders === '0'): ?>
-				Female
-			<?php elseif ($item->equip_genders === '1'): ?>
-				Male
-			<?php elseif ($item->equip_genders === '2'): ?>
+			<?php if (is_null($item->gender)): ?>
 				Both (Male and Female)
 			<?php else: ?>
-				<span class="not-applicable">Unknown</span>
+				<span><?php echo htmlspecialchars($item->gender) ?></span>
 			<?php endif ?>
 		</td>
 	</tr>
@@ -190,7 +195,7 @@
 		</td>
 	</tr>
     <?php endif ?>
-    
+
 </table>
 <?php if ($itemDrops): ?>
 <h3><?php echo htmlspecialchars($item->name) ?> Dropped By</h3>

@@ -17,17 +17,35 @@ $itemDescTable = Flux::config('FluxTables.ItemDescTable');
 
 $itemID = $params->get('id');
 
-$col  = 'items.id AS item_id, name_english AS identifier, ';
-$col .= 'name_japanese AS name, type, ';
-$col .= 'price_buy, price_sell, weight/10 AS weight, defence, `range`, slots, ';
-$col .= 'equip_jobs, equip_upper, equip_genders, equip_locations, ';
-$col .= 'weapon_level, equip_level AS equip_level_min, refineable, view, script, ';
+$col  = 'items.id AS item_id, name_aegis AS identifier, ';
+$col .= 'name_english AS name, type, subtype, ';
+$col .= 'price_buy, price_sell, weight/10 AS weight, defense, `range`, slots, ';
+
+# rAthena's new equip location structure
+$col .= "`location_head_top`, `location_head_mid`, `location_head_low`, ";
+$col .= "`location_armor`, `location_right_hand`, `location_left_hand`, ";
+$col .= "`location_garment`, `location_shoes`, `location_right_accessory`, `location_left_accessory`, ";
+$col .= "`location_costume_head_top`, `location_costume_head_mid`, `location_costume_head_low`, ";
+$col .= "`location_costume_garment`, `location_ammo`, ";
+$col .= "`location_shadow_armor`, `location_shadow_weapon`, `location_shadow_shield`, ";
+$col .= "`location_shadow_shoes`, `location_shadow_right_accessory`, `location_shadow_left_accessory`, ";
+
+# rAthena's new equip job structure
+$col .= "`job_all`, `job_acolyte`, `job_alchemist`, `job_archer`, `job_assassin`, `job_barddancer`, `job_blacksmith`, ";
+$col .= "`job_crusader`, `job_gunslinger`, `job_hunter`, `job_kagerouoboro`, `job_knight`, `job_mage`, `job_merchant`, ";
+$col .= "`job_monk`, `job_ninja`, `job_novice`, `job_priest`, `job_rebellion`, `job_rogue`, `job_sage`, `job_soullinker`, ";
+$col .= "`job_stargladiator`, `job_summoner`, `job_supernovice`, `job_swordman`, `job_taekwon`, `job_thief`, `job_wizard`, ";
+
+# rAthena's new equip class structure
+$col .= "`class_all`, `class_normal`, `class_upper`, `class_baby`, `class_third`, `class_third_upper`, `class_third_baby`, ";
+
+$col .= 'gender, weapon_level, equip_level_min, equip_level_max, refineable, view, script, ';
 $col .= 'equip_script, unequip_script, origin_table, ';
 $col .= "$shopTable.cost, $shopTable.id AS shop_item_id, ";
 if(Flux::config('ShowItemDesc')){
     $col .= 'itemdesc, ';
 }
-$col .= $server->isRenewal ? '`atk:matk` AS attack' : 'attack';
+$col .= "`attack`" . ($server->isRenewal ? ", `magic_attack`" : "");
 
 $sql  = "SELECT $col FROM {$server->charMapDatabase}.items ";
 $sql .= "LEFT OUTER JOIN {$server->charMapDatabase}.$shopTable ON $shopTable.nameid = items.id ";
@@ -40,6 +58,14 @@ $sth  = $server->connection->getStatement($sql);
 $sth->execute(array($itemID));
 
 $item = $sth->fetch();
+$item->groupLocationAttributes();
+$item->groupClassAttributes();
+$item->groupJobAttributes();
+
+# echo "<pre>";
+# var_dump($item);
+# die();
+
 $isCustom = null;
 
 if ($item) {
@@ -47,7 +73,7 @@ if ($item) {
 	$isCustom = (bool)preg_match('/item_db2$/', $item->origin_table);
 
 	if($server->isRenewal) {
-		$item = $this->itemFieldExplode($item, 'attack', ':', array('attack','matk'));
+		$item = $this->itemFieldExplode($item, 'attack', ':', array('attack','magic_attack'));
 		$item = $this->itemFieldExplode($item, 'equip_level_min', ':', array('equip_level_min','equip_level_max'));
 	}
 
@@ -104,6 +130,9 @@ if ($item) {
 
 	$sth  = $server->connection->getStatement($sql);
 	$res = $sth->execute(array_fill(0, 13, $itemID));
+	# echo "<pre>";
+	# $sth->debug_query();
+	# die();
 
 	$dropResults = $sth->fetchAll();
 	$itemDrops   = array();

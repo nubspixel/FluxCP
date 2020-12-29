@@ -1,10 +1,11 @@
 <?php
 return array(
-	1 => 'Normal',
-	2 => 'Upper',
-	4 => 'Baby',
-	8 => 'Third',
-	16 => 'Third Upper',
-	32 => 'Third Baby'
+	'all' 			=> 'All',
+	'normal' 		=> 'Normal',
+	'upper' 		=> 'Upper',
+	'baby' 			=> 'Baby',
+	'third' 		=> 'Third',
+	'third_upper' 	=> 'Third Upper',
+	'third_baby' 	=> 'Third Baby'
 )
 ?>

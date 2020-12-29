@@ -91,11 +91,6 @@ class Flux_DataObject {
 		}
 	}
 
-	public function groupLocationAttributes() {
-		$attrs = array('location_head_top','location_head_mid','location_head_low','location_armor','location_right_hand','location_left_hand','location_garment','location_shoes','location_right_accessory','location_left_accessory','location_costume_head_top','location_costume_head_mid','location_costume_head_low','location_costume_garment','location_ammo','location_shadow_armor','location_shadow_weapon','location_shadow_shield','location_shadow_shoes','location_shadow_right_accessory','location_shadow_left_accessory');
-		$this->groupAttributes('location_data', $attrs, array('location_'));
-	}
-
 	public function groupAttributes($parent_name = "", $childs = array(), $trim = "")
 	{
 		if(!isset($this->$parent_name) || ! is_array($this->$parent_name))
@@ -108,6 +103,21 @@ class Flux_DataObject {
 			}
 		}
 		$this->removeAttributes($childs);
+	}
+
+	public function groupLocationAttributes() {
+		$attrs = array('location_head_top','location_head_mid','location_head_low','location_armor','location_right_hand','location_left_hand','location_garment','location_shoes','location_right_accessory','location_left_accessory','location_costume_head_top','location_costume_head_mid','location_costume_head_low','location_costume_garment','location_ammo','location_shadow_armor','location_shadow_weapon','location_shadow_shield','location_shadow_shoes','location_shadow_right_accessory','location_shadow_left_accessory');
+		$this->groupAttributes('location_data', $attrs, array('location_'));
+	}
+
+	public function groupClassAttributes() {
+		$attrs = array('class_all', 'class_normal', 'class_upper', 'class_baby', 'class_third', 'class_third_upper', 'class_third_baby');
+		$this->groupAttributes('class_data', $attrs, array('class_'));
+	}
+
+	public function groupJobAttributes() {
+		$attrs = array('job_all', 'job_acolyte', 'job_alchemist', 'job_archer', 'job_assassin', 'job_barddancer', 'job_blacksmith', 'job_crusader', 'job_gunslinger', 'job_hunter', 'job_kagerouoboro', 'job_knight', 'job_mage', 'job_merchant', 'job_monk', 'job_ninja', 'job_novice', 'job_priest', 'job_rebellion', 'job_rogue', 'job_sage', 'job_soullinker', 'job_stargladiator', 'job_summoner', 'job_supernovice', 'job_swordman', 'job_taekwon', 'job_thief', 'job_wizard');
+		$this->groupAttributes('jobs_data', $attrs, array('jobs_'));
 	}
 }
 ?>

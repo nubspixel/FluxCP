@@ -5,6 +5,7 @@
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php endif ?>
+<p class="red"><strong>WARNING!</strong> This part of FluxCP is not updated to the latest rAthena's ItemDB</p>
 <form action="<?php echo $this->urlWithQs ?>" method="post">
 	<input type="hidden" name="additem" value="1" />
 	<table class="vertical-table">
