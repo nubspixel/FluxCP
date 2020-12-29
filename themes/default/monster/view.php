@@ -56,7 +56,7 @@
 				<?php echo htmlspecialchars($race) ?>
 			<?php else: ?>
 				<span class="not-applicable">Unknown</span>
-			<?php endif ?>	
+			<?php endif ?>
 		</td>
 		<th>Level</th>
 		<td><?php echo number_format($monster->level) ?></td>
@@ -204,7 +204,7 @@
 		<th>Target</th>
 		<th>Condition</th>
 		<th>Value</th>
-	</tr>	
+	</tr>
 	<?php foreach ($mobSkills as $skill): ?>
 	<tr>
 		<td><?php echo htmlspecialchars($skill->INFO) ?></td>

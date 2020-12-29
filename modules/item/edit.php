@@ -22,7 +22,7 @@ if (!$itemID) {
 	$this->deny();
 }
 
-$col  = "id, view, type, name_english, name_japanese, slots, price_buy, price_sell, weight/10 AS weight, ";
+$col  = "id, view, type, name_aegis, name_english, slots, price_buy, price_sell, weight/10 AS weight, ";
 $col .= "defense, `range`, weapon_level, equip_level AS equip_level_min, refineable, equip_locations, equip_upper, ";
 $col .= "equip_jobs, equip_genders, script, equip_script, unequip_script, origin_table, ";
 $col .= "`attack`" . ($server->isRenewal ? ", `magic_attack`" : "");
@@ -39,8 +39,8 @@ if ($item) {
 	if ($params->get('edititem')) {
 		$viewID        = $params->get('view');
 		$type          = $params->get('type');
-		$identifier    = $params->get('name_english');
-		$itemName      = $params->get('name_japanese');
+		$identifier    = $params->get('name_aegis');
+		$itemName      = $params->get('name_english');
 		$slots         = $params->get('slots');
 		$npcBuy        = $params->get('npc_buy');
 		$npcSell       = $params->get('npc_sell');
@@ -63,8 +63,8 @@ if ($item) {
 	else {
 		$viewID        = $item->view;
 		$type          = $item->type;
-		$identifier    = $item->name_english;
-		$itemName      = $item->name_japanese;
+		$identifier    = $item->name_aegis;
+		$itemName      = $item->name_english;
 		$slots         = $item->slots;
 		$npcBuy        = $item->price_buy;
 		$npcSell       = $item->price_sell;
@@ -221,7 +221,7 @@ if ($item) {
 					$equipLevel .= ':'. $equipLevelMax;
 				}
 
-				$cols = array('id', 'name_english', 'name_japanese', 'type', 'weight', 'equip_locations');
+				$cols = array('id', 'name_aegis', 'name_english', 'type', 'weight', 'equip_locations');
 				$bind = array($itemID, $identifier, $itemName, $type, $weight*10, $equipLoc);
 				$vals = array(
 					'view'           => $viewID,

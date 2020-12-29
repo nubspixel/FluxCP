@@ -225,7 +225,7 @@
 						<?php echo htmlspecialchars($char->guild_name) ?>
 					<?php endif ?>
 				</td>
-			<?php else: ?>	
+			<?php else: ?>
 				<td colspan="2" align="center"><span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span></td>
 			<?php endif ?>
 			<td>
@@ -307,8 +307,8 @@
 				<?php if ($item->card0 == 255 && array_key_exists($item->card1%1280, $itemAttributes)): ?>
 					<?php echo htmlspecialchars($itemAttributes[$item->card1%1280]) ?>
 				<?php endif ?>
-				<?php if ($item->name_japanese): ?>
-					<span class="item_name"><?php echo htmlspecialchars($item->name_japanese) ?></span>
+				<?php if ($item->name_english): ?>
+					<span class="item_name"><?php echo htmlspecialchars($item->name_english) ?></span>
 				<?php else: ?>
 					<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>
 				<?php endif ?>

@@ -165,13 +165,13 @@ if (count($_POST) && $params->get('additem')) {
 			$tempTable = new Flux_TemporaryTable($server->connection, $tableName, $fromTables);
 			$shopTable = Flux::config('FluxTables.ItemShopTable');
 
-			$sth = $server->connection->getStatement("SELECT id, name_japanese, origin_table FROM $tableName WHERE id = ? LIMIT 1");
+			$sth = $server->connection->getStatement("SELECT id, name_english, origin_table FROM $tableName WHERE id = ? LIMIT 1");
 			$sth->execute(array($itemID));
 
 			$item = $sth->fetch();
 			if ($item && $item->id) {
 				$errorMessage = 'An item already exists with that ID.';
-				$errorMessage = sprintf($errorMessage, $item->name_japanese, $item->origin_table, $item->id);
+				$errorMessage = sprintf($errorMessage, $item->name_english, $item->origin_table, $item->id);
 			}
 			else {
 				$equipLevel = $equipLevelMin;
@@ -179,7 +179,7 @@ if (count($_POST) && $params->get('additem')) {
 					$equipLevel .= ':'. $equipLevelMax;
 				}
 
-				$cols = array('id', 'name_english', 'name_japanese', 'type', 'weight');
+				$cols = array('id', 'name_aegis', 'name_english', 'type', 'weight');
 				$bind = array($itemID, $identifier, $itemName, $type, $weight*10);
 				$vals = array(
 					'view'           => $viewID,

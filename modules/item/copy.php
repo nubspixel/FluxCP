@@ -20,7 +20,7 @@ if($server->isRenewal) {
 $tableName = "{$server->charMapDatabase}.items";
 $tempTable = new Flux_TemporaryTable($server->connection, $tableName, $fromTables);
 
-$col  = "name_english, name_japanese, type, price_buy, price_sell, ";
+$col  = "name_aegis, name_english, type, price_buy, price_sell, ";
 $col .= "weight, defense, `range`, slots, equip_jobs, equip_upper, ";
 $col .= "equip_genders, equip_locations, weapon_level, equip_level, refineable, ";
 $col .= "view, script, equip_script, unequip_script, ";
@@ -33,7 +33,7 @@ $sth->execute(array($itemID));
 $item = $sth->fetch();
 
 if ($item) {
-	$title = "Duplicate Item ({$item->name_japanese}: #$itemID)";
+	$title = "Duplicate Item ({$item->name_english}: #$itemID)";
 }
 
 if ($item && count($_POST) && $params->get('copyitem')) {
@@ -55,13 +55,13 @@ if ($item && count($_POST) && $params->get('copyitem')) {
 			$errorMessage = 'An item with that ID already exists in '.$customTable.'.';
 		}
 		else {
-			$col  = "id, name_english, name_japanese, type, price_buy, price_sell, ";
+			$col  = "id, name_aegis, name_english, type, price_buy, price_sell, ";
 			$col .= "weight, defense, `range`, slots, equip_jobs, equip_upper, ";
 			$col .= "equip_genders, equip_locations, weapon_level, equip_level, refineable, ";
 			$col .= "view, script, equip_script, unequip_script, ";
 			$col .= "`attack`" . ($server->isRenewal ? ", `magic_attack`" : "");
-			$neweng = $item->name_english.$copyID;
-			$newjap = $item->name_japanese.$copyID;
+			$neweng = $item->name_aegis.$copyID;
+			$newjap = $item->name_english.$copyID;
 
 			$bind = array(
 				$copyID, $neweng, $newjap, $item->type, $item->price_buy, $item->price_sell,

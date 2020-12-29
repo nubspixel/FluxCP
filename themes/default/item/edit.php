@@ -17,8 +17,8 @@
 			<td><input type="text" name="view" id="view" value="<?php echo htmlspecialchars($viewID) ?>" /></td>
 		</tr>
 		<tr>
-			<th><label for="name_english">Identifier</label></th>
-			<td><input type="text" name="name_english" id="name_english" value="<?php echo htmlspecialchars($identifier) ?>" /></td>
+			<th><label for="name_aegis">Identifier</label></th>
+			<td><input type="text" name="name_aegis" id="name_aegis" value="<?php echo htmlspecialchars($identifier) ?>" /></td>
 			<th><label for="type">Type</label></th>
 			<td>
 				<select name="type" id="type" onchange="if (this.options[this.selectedIndex].value.indexOf('-') != -1) document.edit_item_form.view.value=this.options[this.selectedIndex].value.substring(this.options[this.selectedIndex].value.indexOf('-')+1)">
@@ -41,8 +41,8 @@
 			</td>
 		</tr>
 		<tr>
-			<th><label for="name_japanese">Name</label></th>
-			<td><input type="text" name="name_japanese" id="name_japanese" value="<?php echo htmlspecialchars($itemName) ?>" /></td>
+			<th><label for="name_english">Name</label></th>
+			<td><input type="text" name="name_english" id="name_english" value="<?php echo htmlspecialchars($itemName) ?>" /></td>
 			<th><label for="slots">Slots</label></th>
 			<td><input type="text" name="slots" id="slots" value="<?php echo htmlspecialchars($slots) ?>" /></td>
 		</tr>
