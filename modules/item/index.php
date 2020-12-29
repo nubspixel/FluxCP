@@ -39,6 +39,8 @@ try {
 		$weightOp     = $params->get('weight_op');
 		$attack       = $params->get('attack');
 		$attackOp     = $params->get('attack_op');
+		$matk         = $params->get('matk');
+		$matkOp       = $params->get('matk_op');
 		$defense      = $params->get('defense');
 		$defenseOp    = $params->get('defense_op');
 		$range        = $params->get('range');
@@ -206,7 +208,7 @@ try {
 			}
 		}
 
-		if (!$server->isRenewal && in_array($attackOp, $opValues) && trim($attack) != '') {
+		if (in_array($attackOp, $opValues) && trim($attack) != '') {
 			$op = $opMapping[$attackOp];
 			if ($op == '=' && $attack === '0') {
 				$sqlpartial .= "AND (attack IS NULL OR attack = 0) ";
@@ -214,6 +216,17 @@ try {
 			else {
 				$sqlpartial .= "AND attack $op ? ";
 				$bind[]      = $attack;
+			}
+		}
+
+		if ($server->isRenewal && in_array($matkOp, $opValues) && trim($matk) != '') {
+			$op = $opMapping[$matkOp];
+			if ($op == '=' && $matk === '0') {
+				$sqlpartial .= "AND (magic_attack IS NULL OR magic_attack = 0) ";
+			}
+			else {
+				$sqlpartial .= "AND magic_attack $op ? ";
+				$bind[]      = $matk;
 			}
 		}
 
@@ -320,9 +333,6 @@ try {
 	foreach ($items as $key => $value) {
 		$items[$key]->groupLocationAttributes();
 	}
-	# echo "<pre>";
-	# print_r($items);
-	# die();
 
 	$authorized = $auth->actionAllowed('item', 'view');
 
