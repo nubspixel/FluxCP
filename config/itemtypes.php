@@ -1,18 +1,16 @@
 <?php
 return array(
-	0 => 'Healing',
-	//1 => 'Unknown',
-	2 => 'Usable',
-	3 => 'Etc',
-	4 => 'Armor',
-	5 => 'Weapon',
-	6 => 'Card',
-	7 => 'Pet Egg',
-	8 => 'Pet Armor',
-	//9 => 'Unknown2',
-	10 => 'Ammo',
-	11 => 'Delay Consume',
-	12 => 'Shadow Equipment',
-	18 => 'Cash Shop Reward'
+	'Healing' 		=> 'Healing',
+	'Usable' 		=> 'Usable',
+	'Etc' 			=> 'Etc',
+	'Armor' 		=> 'Armor or Accessory',
+	'Weapon' 		=> 'Weapon',
+	'Card' 			=> 'Card',
+	'PetEgg' 		=> 'Pet Egg',
+	'PetArmor' 		=> 'Pet Armor',
+	'Ammo' 			=> 'Ammo',
+	'DelayConsume'	=> 'Delay Consume',
+	'ShadowGear' 	=> 'Shadow Equipment',
+	'Cash' 			=> 'Cash Shop Reward'
 )
 ?>

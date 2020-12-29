@@ -14,13 +14,13 @@ try {
 	$tableName = "{$server->charMapDatabase}.items";
 	$tempTable = new Flux_TemporaryTable($server->connection, $tableName, $fromTables);
 	$shopTable = Flux::config('FluxTables.ItemShopTable');
-	
+
 	// Statement parameters, joins and conditions.
 	$bind        = array();
 	$sqlpartial  = "LEFT OUTER JOIN {$server->charMapDatabase}.$shopTable ON $shopTable.nameid = items.id ";
 	$sqlpartial .= "WHERE 1=1 ";
 	$itemID      = $params->get('item_id');
-	
+
 	if ($itemID) {
 		$sqlpartial .= "AND items.id = ? ";
 		$bind[]      = $itemID;
@@ -48,9 +48,9 @@ try {
 		$refineable   = $params->get('refineable');
 		$forSale      = $params->get('for_sale');
 		$custom       = $params->get('custom');
-		
+
 		if ($itemName) {
-			$sqlpartial .= "AND (name_japanese LIKE ? OR name_japanese = ?) ";
+			$sqlpartial .= "AND (name_english LIKE ? OR name_english = ?) ";
 			$bind[]      = "%$itemName%";
 			$bind[]      = $itemName;
 		}
@@ -60,6 +60,25 @@ try {
 				$itemType = $itemTypeSplit[0];
 				$itemType2 = $itemTypeSplit[1];
 			}
+
+			$itemTypes = Flux::config('ItemTypes')->toArray();
+			if (array_key_exists($itemType, $itemTypes) && $itemTypes[$itemType]) {
+				$sqlpartial .= "AND `type` = ? ";
+				$bind[]      = $itemType;
+			} else {
+				$sqlpartial .= 'AND `type` IS NULL ';
+			}
+			if(isset($itemType2)) {
+				$itemTypes2 = Flux::config('ItemTypes2')->toArray();
+				if (array_key_exists($itemType, $itemTypes2) && array_key_exists($itemType2, $itemTypes2[$itemType]) && $itemTypes2[$itemType][$itemType2]) {
+					$sqlpartial .= "AND `subtype` = ? ";
+					$bind[]      = $itemType2;
+				} else {
+					$sqlpartial .= 'AND `subtype` IS NULL ';
+				}
+			}
+
+			/*
 			if (is_numeric($itemType) && (floatval($itemType) == intval($itemType))) {
 				$itemTypes = Flux::config('ItemTypes')->toArray();
 				if (array_key_exists($itemType, $itemTypes) && $itemTypes[$itemType]) {
@@ -68,7 +87,7 @@ try {
 				} else {
 					$sqlpartial .= 'AND type IS NULL ';
 				}
-				
+
 				if (count($itemTypeSplit) == 2 && is_numeric($itemType2) && (floatval($itemType2) == intval($itemType2))) {
 					$itemTypes2 = Flux::config('ItemTypes2')->toArray();
 					if (array_key_exists($itemType, $itemTypes2) && array_key_exists($itemType2, $itemTypes2[$itemType]) && $itemTypes2[$itemType][$itemType2]) {
@@ -81,26 +100,44 @@ try {
 			} else {
 				$typeName   = preg_quote($itemType, '/');
 				$itemTypes  = preg_grep("/.*?$typeName.*?/i", Flux::config('ItemTypes')->toArray());
-				
+
 				if (count($itemTypes)) {
 					$itemTypes   = array_keys($itemTypes);
 					$sqlpartial .= "AND (";
 					$partial     = '';
-					
+
 					foreach ($itemTypes as $id) {
 						$partial .= "type = ? OR ";
 						$bind[]   = $id;
 					}
-					
+
 					$partial     = preg_replace('/\s*OR\s*$/', '', $partial);
 					$sqlpartial .= "$partial) ";
 				} else {
 					$sqlpartial .= 'AND type IS NULL ';
 				}
 			}
+			*/
 		}
 
 		if ($equipLoc !== false && $equipLoc !== '-1') {
+			$equipLoc_search = explode("|", $equipLoc);
+			$equipLoc_cols = Flux::getEquipLocationColumnNames();
+
+			foreach ($equipLoc_search as $k => $v) { $equipLoc_search[$k] = 'location_'.$v; }
+			foreach ($equipLoc_cols as $k => $v) {
+				if(in_array($v, $equipLoc_search)) { # search column exists
+					$sqlpartial .= "AND {$v} = ? ";
+					$bind[] = 1;
+				} else {
+					$sqlpartial .= "AND {$v} IS NULL ";
+				}
+			}
+		}
+		#var_dump($equipLoc);
+		#die();
+		if ($equipLoc !== false && $equipLoc !== '-1') {
+			/*
 			if(is_numeric($equipLoc) && (floatval($equipLoc) == intval($equipLoc))) {
 				$equipLocationCombinations = Flux::config('EquipLocationCombinations')->toArray();
 				if (array_key_exists($equipLoc, $equipLocationCombinations) && $equipLocationCombinations[$equipLoc]) {
@@ -114,12 +151,12 @@ try {
 			} else {
 				$combinationName = preg_quote($equipLoc, '/');
 				$equipLocationCombinations = preg_grep("/.*?$combinationName.*?/i", Flux::config('EquipLocationCombinations')->toArray());
-				
+
 				if (count($equipLocationCombinations)) {
 					$equipLocationCombinations = array_keys($equipLocationCombinations);
 					$sqlpartial .= "AND (";
 					$partial     = '';
-					
+
 					foreach ($equipLocationCombinations as $id) {
 						if ($id === 0) {
 							$partial .= "(equip_locations = 0 OR equip_locations IS NULL) OR ";
@@ -128,13 +165,14 @@ try {
 							$bind[]   = $id;
 						}
 					}
-					
+
 					$partial     = preg_replace('/\s*OR\s*$/', '', $partial);
 					$sqlpartial .= "$partial) ";
 				}
 			}
+			*/
 		}
-		
+
 		if (in_array($npcBuyOp, $opValues) && trim($npcBuy) != '') {
 			$op = $opMapping[$npcBuyOp];
 			if ($op == '=' && $npcBuy === '0') {
@@ -145,7 +183,7 @@ try {
 				$bind[]      = $npcBuy;
 			}
 		}
-		
+
 		if (in_array($npcSellOp, $opValues) && trim($npcSell) != '') {
 			$op = $opMapping[$npcSellOp];
 			if ($op == '=' && $npcSell === '0') {
@@ -156,7 +194,7 @@ try {
 				$bind[]      = $npcSell;
 			}
 		}
-		
+
 		if (in_array($weightOp, $opValues) && trim($weight) != '') {
 			$op = $opMapping[$weightOp];
 			if ($op == '=' && $weight === '0') {
@@ -167,7 +205,7 @@ try {
 				$bind[]      = $weight;
 			}
 		}
-		
+
 		if (!$server->isRenewal && in_array($attackOp, $opValues) && trim($attack) != '') {
 			$op = $opMapping[$attackOp];
 			if ($op == '=' && $attack === '0') {
@@ -178,18 +216,18 @@ try {
 				$bind[]      = $attack;
 			}
 		}
-		
+
 		if (in_array($defenseOp, $opValues) && trim($defense) != '') {
 			$op = $opMapping[$defenseOp];
 			if ($op == '=' && $defense === '0') {
-				$sqlpartial .= "AND (defence IS NULL OR defence = 0) ";
+				$sqlpartial .= "AND (defense IS NULL OR defense = 0) ";
 			}
 			else {
-				$sqlpartial .= "AND defence $op ? ";
+				$sqlpartial .= "AND defense $op ? ";
 				$bind[]      = $defense;
 			}
 		}
-		
+
 		if (in_array($rangeOp, $opValues) && trim($range) != '') {
 			$op = $opMapping[$rangeOp];
 			if ($op == '=' && $range === '0') {
@@ -200,7 +238,7 @@ try {
 				$bind[]      = $range;
 			}
 		}
-		
+
 		if (in_array($slotsOp, $opValues) && trim($slots) != '') {
 			$op = $opMapping[$slotsOp];
 			if ($op == '=' && $slots === '0') {
@@ -211,7 +249,7 @@ try {
 				$bind[]      = $slots;
 			}
 		}
-		
+
 		if ($refineable) {
 			if ($refineable == 'yes') {
 				$sqlpartial .= "AND refineable > 0 ";
@@ -220,7 +258,7 @@ try {
 				$sqlpartial .= "AND IFNULL(refineable, 0) < 1 ";
 			}
 		}
-		
+
 		if ($forSale) {
 			if ($forSale == 'yes') {
 				$sqlpartial .= "AND $shopTable.cost > 0 ";
@@ -229,7 +267,7 @@ try {
 				$sqlpartial .= "AND IFNULL($shopTable.cost, 0) < 1 ";
 			}
 		}
-		
+
 		if ($custom) {
 			if ($custom == 'yes') {
 				$sqlpartial .= "AND origin_table LIKE '%item_db2' ";
@@ -239,11 +277,11 @@ try {
 			}
 		}
 	}
-	
+
 	// Get total count and feed back to the paginator.
 	$sth = $server->connection->getStatement("SELECT COUNT(DISTINCT items.id) AS total FROM $tableName $sqlpartial");
 	$sth->execute($bind);
-	
+
 	$paginator = $this->getPaginator($sth->fetch()->total);
 	$sortable = array(
 		'item_id' => 'asc', 'name', 'type', 'equip_locations', 'price_buy', 'price_sell', 'weight',
@@ -253,21 +291,41 @@ try {
 		$sortable[] = 'attack';
 	}
 	$paginator->setSortableColumns($sortable);
-	
-	$col  = "origin_table, items.id AS item_id, name_japanese AS name, type, ";
-	$col .= "IFNULL(equip_locations, 0) AS equip_locations, price_buy, weight/10 AS weight, ";
-	$col .= "defence AS defense, `range`, slots, refineable, cost, $shopTable.id AS shop_item_id, ";
+
+	$col  = "origin_table, items.id AS item_id, name_english AS name, type, subtype, ";
+	$col .= "price_buy, weight/10 AS weight, ";
+
+	# rAthena's new equip location structure
+	$col .= "`location_head_top`, `location_head_mid`, `location_head_low`, ";
+	$col .= "`location_armor`, `location_right_hand`, `location_left_hand`, ";
+	$col .= "`location_garment`, `location_shoes`, `location_right_accessory`, `location_left_accessory`, ";
+	$col .= "`location_costume_head_top`, `location_costume_head_mid`, `location_costume_head_low`, ";
+	$col .= "`location_costume_garment`, `location_ammo`, ";
+	$col .= "`location_shadow_armor`, `location_shadow_weapon`, `location_shadow_shield`, ";
+	$col .= "`location_shadow_shoes`, `location_shadow_right_accessory`, `location_shadow_left_accessory`, ";
+
+	$col .= "defense, `range`, slots, refineable, cost, $shopTable.id AS shop_item_id, ";
 	$col .= "IFNULL(price_sell, FLOOR(price_buy/2)) AS price_sell, view, ";
-	$col .= ($server->isRenewal) ? "`atk:matk` AS attack" : "attack";
+	$col .= "`attack`" . ($server->isRenewal ? ", `magic_attack`" : "");
 
 	$sql  = $paginator->getSQL("SELECT $col FROM $tableName $sqlpartial GROUP BY items.id, $shopTable.id");
 	$sth  = $server->connection->getStatement($sql);
-	
 	$sth->execute($bind);
+	# echo "<pre>";
+	# $sth->debug_query();
+	# die();
+
 	$items = $sth->fetchAll();
-	
+
+	foreach ($items as $key => $value) {
+		$items[$key]->groupLocationAttributes();
+	}
+	# echo "<pre>";
+	# print_r($items);
+	# die();
+
 	$authorized = $auth->actionAllowed('item', 'view');
-	
+
 	if ($items && count($items) === 1 && $authorized && Flux::config('SingleMatchRedirectItem')) {
 		$this->redirect($this->url('item', 'view', array('id' => $items[0]->item_id)));
 	}
@@ -277,7 +335,7 @@ catch (Exception $e) {
 		// Ensure table gets dropped.
 		$tempTable->drop();
 	}
-	
+
 	// Raise the original exception.
 	$class = get_class($e);
 	throw new $class($e->getMessage());

@@ -174,17 +174,18 @@
 			<td colspan="2"><?php echo htmlspecialchars($item->name) ?></td>
 		<?php endif ?>
 		<td>
-			<?php if ($type=$this->itemTypeText($item->type, $item->view)): ?>
-				<?php echo htmlspecialchars($type) ?>
-			<?php else: ?>
-				<span class="not-applicable">Unknown<?php echo " (".$item->type.")" ?></span>
-			<?php endif ?>
+			<?php if(!empty(htmlspecialchars($item->subtype))) {
+				echo htmlspecialchars($item->type)." - ".htmlspecialchars($item->subtype);
+			} else {
+				echo htmlspecialchars($item->type);
+			}
+			?>
 		</td>
 		<td>
-			<?php if ($loc=$this->equipLocationCombinationText($item->equip_locations)): ?>
+			<?php if ($loc=$this->equipLocationCombinationText($item->location_data)): ?>
 				<?php echo htmlspecialchars($loc) ?>
 			<?php else: ?>
-				<span class="not-applicable">Unknown<?php echo " (".$item->equip_locations.")" ?></span>
+				<span class="not-applicable">Unknown<?php echo " (".$item->location_data.")" ?></span>
 			<?php endif ?>
 		</td>
 		<td><?php echo number_format((int)$item->price_buy) ?></td>
@@ -192,7 +193,7 @@
 		<td><?php echo round($item->weight, 1) ?></td>
 		<td><?php echo number_format((int)$item->attack) ?></td>
 		<?php if($server->isRenewal): ?>
-			<td><?php echo number_format((int)$item->matk) ?></td>
+			<td><?php echo number_format((int)$item->magic_attack) ?></td>
 		<?php endif ?>
 		<td><?php echo number_format((int)$item->defense) ?></td>
 		<td><?php echo number_format((int)$item->range) ?></td>
