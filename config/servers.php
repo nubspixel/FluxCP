@@ -16,7 +16,7 @@ return array(
 			'Hostname'   => '127.0.0.1',
 			'Username'   => 'ragnarok',
 			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Database'   => 'cleanflux',
 			'Persistent' => true,
 			'Timezone'   => null // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
