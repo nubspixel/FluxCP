@@ -43,16 +43,16 @@ require_once (FLUX_THEME_DIR.'/newtheme/includes/config.php');
 
               if(count($menus) == 1) { // only 1 in the group
                 echo '<li class="nav-item '.($cur_page ? 'active' : '').'">';
-                echo '<a class="nav-link" href="'.$menus[0]['url'].'">'.htmlspecialchars($menus[0]['name']).' '.($cur_page ? '<span class="sr-only">(current)</span>' : '').'</a>';
+                echo '<a class="nav-link" href="'.$menus[0]['url'].'">'.htmlspecialchars(Flux::message($menus[0]['name'])).' '.($cur_page ? '<span class="sr-only">(current)</span>' : '').'</a>';
                 echo '</li>';
               } else {
                 echo '<li class="nav-item dropdown">';
                 echo '<a class="nav-link dropdown-toggle" href="#" id="info-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                echo htmlspecialchars($menuCategory);
+                echo htmlspecialchars(Flux::message($menuCategory));
                 echo '</a>';
                 echo '<div class="dropdown-menu" aria-labelledby="info-dropdown">';
                 foreach ($menus as $menuItem) {
-                  echo '<a class="dropdown-item" href="'.$menuItem['url'].'">'.htmlspecialchars($menuItem['name']).'</a>';
+                  echo '<a class="dropdown-item" href="'.$menuItem['url'].'">'.htmlspecialchars(Flux::message($menuItem['name'])).'</a>';
                 }
                 echo '</div></li>';
               }
@@ -65,7 +65,7 @@ require_once (FLUX_THEME_DIR.'/newtheme/includes/config.php');
           echo '<a class="nav-link dropdown-toggle" href="#" id="info-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
           echo 'Admin Menu</a><div class="dropdown-menu" aria-labelledby="info-dropdown">';
           foreach ($adminMenuItems as $menuItem) {
-            echo '<a class="dropdown-item" href="'.$this->url($menuItem['module'], $menuItem['action']).'">'.htmlspecialchars($menuItem['name']).'</a>';
+            echo '<a class="dropdown-item" href="'.$this->url($menuItem['module'], $menuItem['action']).'">'.htmlspecialchars(Fluz::message($menuItem['name'])).'</a>';
           }
           echo '</div></li>';
         }
