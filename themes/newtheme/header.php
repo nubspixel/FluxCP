@@ -2,7 +2,7 @@
 require_once (FLUX_THEME_DIR.'/newtheme/includes/config.php');
 require_once (FLUX_ADDON_DIR."/newtheme/modules/newtheme/main.php");
 $serverNames = $this->getServerNames();
-$pc = $pop = 0;
+$pc = $peak = 0;
 
 if(! ($params->get('module') == 'server' && $params->get('action') == 'status')) {
   if(isset($title))
@@ -17,7 +17,7 @@ if(! ($params->get('module') == 'server' && $params->get('action') == 'status'))
 if(isset($serverStatus)) {
   $key = array_keys($serverStatus)[0];
   $pc = $serverStatus[$key][$key]['playersOnline'];
-  $pop = $serverStatus[$key][$key]['playersPeak'];
+  $peak = $serverStatus[$key][$key]['playersPeak'];
   $status = ($serverStatus[$key][$key]['loginServerUp'] && $serverStatus[$key][$key]['charServerUp'] && $serverStatus[$key][$key]['mapServerUp']);
 }
 if (Flux::config('UseLoginCaptcha') && Flux::config('EnableReCaptcha')) {
