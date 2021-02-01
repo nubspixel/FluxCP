@@ -1,0 +1,10 @@
+CHECKLIST
+ - lity 		-> Lightbox
+ - AOS 			-> animate on scroll
+ - slick		-> carousel
+ - animista		-> random animation/effects
+ - cursor		-> chevron scroller (on splash)
+
+Library
+ - fontawesome 	5.9
+ - bootstrap 	5 beta1

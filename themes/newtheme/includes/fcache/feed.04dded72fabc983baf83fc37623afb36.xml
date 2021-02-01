@@ -1,0 +1,1951 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Updates Feed</title><link>https://dark-ro.com/forum/rss/2-updates-feed.xml/</link><description>RSS Feed for Updates</description><language>en</language><item><title>January 28, 2020  - C-3PO's Maintenance Notes</title><link><![CDATA[https://dark-ro.com/forum/topic/5955-january-28-2020-c-3pos-maintenance-notes/?do=findComment&comment=32311]]></link><description><![CDATA[Attention citizens of the republic!
+ 
+
+
+	 
+ 
+
+
+	The scheduled maintenance was a success and the server's start sequence was completed without any issues. DarkRO Rebirth is now running at a self-sustained state and you should be able to perform your normal routines immediately after patching your client.
+ 
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Turned the lhz_dun03 map PK setting to OFF.
+	
+	
+		Turned the thana_boss map PK setting to OFF.
+	
+	
+		Improved and cleaned the Universal Item ID line in all items.
+	
+	
+		Completely removed the Box of Sunlight's effects.
+	
+	
+		All Color LHZ Auras (Mid &amp; Lower) now have All Stats +1 
+		Note: Revert to normal item to automatically convert to costume.
+	
+	
+		All Color Rune of Power (Mid &amp; Lower) now have All Stats +1 
+		Note: Revert to normal item to automatically convert to costume.
+	
+	
+		Revamped (Buff) LHZ Cards - Added effects to promote constant usage. 
+		BETA RELEASE - These cards will receive constant changes based on the server's meta.
+		
+			
+				High Wizard Card
+				
+					
+						Int +4
+					
+					
+						Attack and magic attack -20%
+					
+					
+						Enables the wearer to see hidden enemies
+					
+					
+						[High Wizard Class]
+						
+							
+								Increases magic attack by 1% for every 10 base Int of the wearer
+							
+							
+								If the user has mastered Gravitational Field at level 5, grants magic attack +10
+							
+							
+								If the user has mastered Soul Drain at level 10, magic attack +2%
+							
+						
+					
+				
+			
+			
+				High Priest Card
+				
+					
+						Max SP +5%
+					
+					
+						Has a 5% chance of auto-casting level 4 Safety Wall while being physically attacked
+					
+					
+						Grants 15% resistance against Holy and Dark property attacks
+					
+					
+						[High Priest Class]
+						
+							
+								Increases magic attack by 1% for every 25 base Int of the wearer
+							
+							
+								If the user has mastered Basilica at level 5, increases resistance against all non-Neutral property attacks by 5%
+							
+							
+								If the user has mastered Safety Wall at level 10, auto-casts level 5 Safety Wall instead
+							
+						
+					
+				
+			
+			
+				Sniper Card
+				
+					
+						Hit Rate +200
+					
+					
+						Increases ranged damage by 5%. Further increases ranged damage by 1% per refine rate of the weapon
+					
+					
+						Has a 5% chance of healing 15% of the damage dealt as HP
+					
+					
+						[Sniper Class]
+						
+							
+								Increases Hit Rate by 5 for every 25 base Dex of the wearer
+							
+							
+								Increases the chance of healing by 5%
+							
+							
+								If the user has mastered Beast Bane at level 10, further increases ranged damage by 1% per 2 refine of the weapon
+							
+						
+					
+				
+			
+			
+				Lord Knight Card
+				
+					
+						Str +3
+					
+					
+						Max HP -25%
+					
+					
+						Enables the use of level 1 Berserk
+					
+					
+						[Lord Knight Class]
+						
+							
+								Increases attack by 5 for every 50 base Str of the wearer
+							
+							
+								If the user has mastered Two-handed Sword Mastery at level 10, grants an additional Str +2 and attack +10
+							
+							
+								If the user has mastered Spear Mastery at level 10, hit +50 and increases ranged damage by 5%
+							
+						
+					
+				
+			
+			
+				Whitesmith Card
+				
+					
+						Makes the weapon Unbreakable
+					
+					
+						Increases attack by 5 per refine rate of the weapon
+					
+					
+						Has a chance of auto-casting level 6 Mammonite and level 1 Maximum Over-Thrust while physically attacking
+					
+					
+						[Whitesmith Class]
+					
+					
+						Attack +10%, increases attack by 2 for every 10 base Str of the wearer
+						
+							
+								Has a 3% chance to break the target's weapon and armor while physically attacking
+							
+							
+								Has a 1% chance to break the target's shield and headgear while physically attacking
+							
+							
+								If the wearer has mastered Mammonite at level 10, auto-casts level 10 Mammonite instead, and the Mammonite skill costs 0 zeny
+							
+						
+					
+				
+			
+			
+				Assassin Cross Card
+				
+					
+						Crit +15
+					
+					
+						Increases critical damage by 2% per refine rate of the weapon
+					
+					
+						Has a chance of auto-casting level 1 Enchant Deadly Poison while physically attacking and while being physically attacked
+					
+					
+						[Assassin Class]
+						
+							
+								Increases critical damage by 2% for every 20 base Agi of the wearer
+							
+							
+								If the wearer has mastered Enchant Deadly Poison at level 5, increases attack by 5%
+							
+							
+								If the wearer has mastered Soul Destroyer at level 10, reduces after-cast delay of all skills by 15%
+							
+						
+					
+				
+			
+		
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Fixed the Ninja's Clothing Dye Issue
+	
+	
+		Fixed the Gunslinger Clothing Dye Issue
+	
+	
+		Fixed the stacking issue of the 'Recruit Siege Supply Box'. This reverted after an update.
+	
+	
+		Added several fixes to the Card Removal NPC (Old Woman).
+	
+	
+		Fixed the player reported Twin Pom Santa Hat issue where the script was still working despite it being a costume.
+	
+	
+		Fixed the Geiravor's VH issue where the CritRate does not increase from each refine.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Added the VH Upgrade Quest in @guide.
+	
+	
+		Build Profiles - Released a new NPC for saving and loading Stats and Skills. Located inside Prontera Library.
+	
+	
+		Added the @miningcd command to check Mining Cooldown without entering the map.
+	
+	
+		Released Tier 2 Valkyrie Manteau + Quest (Located near the Tier Upgrade NPC)
+		
+			
+				[Mage, Archer, Thief, Sith &amp; Ninja]
+				
+					
+						Increase perfect dodge by 8 + (refine * 3)
+					
+					
+						If refined to +8, additional perfect dodge +2, and reduces incoming non-Neutral damage by 3%
+					
+				
+			
+			
+				[Swordsman, Merchant, Acolyte, Jedi &amp; Gunslinger]
+				
+					
+						Reflect 8 + (refine * 3)% melee damage back to enemies
+					
+					
+						If refined to +8, additional 2% melee damage reflect, and reflects 5% of ranged damage back to enemies.
+					
+				
+			
+		
+	
+	
+		Rotated Headgears (Add + Remove)
+		
+			
+				Donation Manager
+				
+					
+						Exclusive Donation
+						
+							
+								Blue Electric Aura (Mid &amp; Lower)
+							
+							
+								Red Electric Aura (Mid &amp; Lower)
+							
+						
+					
+					
+						Bonus Points
+						
+							
+								Red Seraph Wing
+							
+							
+								Mario Hat
+							
+							
+								Love Cheeks
+							
+							
+								Warm Cat Muffler
+							
+							
+								Mafia Dog
+							
+							
+								Sweet Bonnet
+							
+							
+								Nettie Heart Bubblegum
+							
+						
+					
+					
+						Exclusive Bonus Points
+						
+							
+								Gold Magestic Goat
+							
+							
+								Neptune Helm
+							
+							
+								Black Rune of Power
+							
+							
+								Costume Picnic Basket
+							
+							
+								Eleanor Wig
+							
+						
+					
+				
+			
+			
+				Activity Points
+				
+					
+						Aquarius Crown
+					
+					
+						Yellow Baseball Cap
+					
+					
+						Earth Goddess Flower
+					
+					
+						Bloody Butterfly Ears
+					
+					
+						Weisswurst
+					
+				
+			
+			
+				Vote Points
+				
+					
+						Love Dad Bandana
+					
+					
+						Pink Beanie
+					
+					
+						Crimson Ribbon
+					
+					
+						Tinker Bell Ears
+					
+					
+						Spare Card
+					
+				
+			
+			
+				KoE
+				
+					
+						Sword Backpack
+					
+					
+						Creed Helm
+					
+					
+						Yaepjyak
+					
+					
+						Benevolent Guardian
+					
+					
+						Emoticon Cute
+					
+				
+			
+			
+				WoE
+				
+					
+						Umbrella Backpack
+					
+					
+						Garuda Hat
+					
+					
+						Dwarf Beard
+					
+					
+						I love china
+					
+					
+						Emoticon Dead
+					
+				
+			
+			
+				PvP
+				
+					
+						Rainbow Cloud
+					
+					
+						Rage of Luster
+					
+					
+						Aquarius Diadem
+					
+					
+						Pig Nose
+					
+					
+						Steering Wheel Backpack
+					
+				
+			
+		
+	
+
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Updated the Item Database in the website. This is in support of the clickable Universal Item ID System.
+	
+
+
+
+	 
+ 
+
+
+	It is strongly recommended that you update your DarkRO Rebirth Client often to avoid any errors and inconveniences in-game. Please download the latest client on our Website's Downloads Page.]]></description><pubDate>Wed, 27 Jan 2021 21:22:56 +0000</pubDate></item><item><title>January 14, 2021  - C-3PO's Maintenance Notes</title><link><![CDATA[https://dark-ro.com/forum/topic/5886-january-14-2021-c-3pos-maintenance-notes/?do=findComment&comment=32051]]></link><description><![CDATA[Attention citizens of the republic!
+ 
+
+
+	 
+ 
+
+
+	The scheduled maintenance was a success and the server's start sequence was completed without any issues. DarkRO Rebirth is now running at a self-sustained state and you should be able to perform your normal routines immediately after patching your client.
+ 
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Updated Gepard cheat detections.
+	
+	
+		Disabled Mail Service (RodEx)
+	
+	
+		Revamped MVP Cards
+		
+			
+				Berzebub Card
+				
+					
+						
+							Reduces casting time by 30%
+						 
+					
+					
+						
+							INT +3
+						 
+					
+				
+			
+			
+				Boss Ygnizem Card
+				
+					
+						
+							Every second, you recover ([base level*2]) HP and ([job level/10]) SP
+						 
+					
+					
+						
+							Increases Maximum HP and Maximum SP by 12%
+						 
+					
+					
+						
+							Maximum HP and Maximum SP by +1% per refine rate of the Footgear
+						 
+					
+				
+			
+			
+				Drake Card
+				
+					
+						
+							Atk +5%
+						 
+					
+					
+						
+							Atk +3% per 2 refine rate of the Weapon
+						 
+					
+					
+						
+							Nullify reduction in damage inflicted on enemies resulting from enemy's size
+						 
+					
+				
+			
+			
+				Kiel-D-01 Card
+				
+					
+						Reduces all skill's after-cast delay by 25%
+					
+					
+						Increases SP cost of all skills by 25%
+					
+				
+			
+			
+				Orc Hero Card
+				
+					
+						
+							Gain immunity to the Stun status
+						 
+					
+					
+						
+							VIT +3
+						 
+					
+					
+						
+							If the headgear is refined to +7 or higher, further increases VIT +1 and Max HP +1%
+						 
+					
+					
+						
+							If the headgear is refined to +9 or higher, further increases VIT +1 and Max HP +1%
+						 
+					
+				
+			
+			
+				
+					Garm Card
+				 
+
+				
+					
+						
+							Increases physical and magical damage against Water property targets by 1% per refine rate of the Armor
+						 
+					
+					
+						
+							Add a 50% chance of auto casting 'Freeze' on an enemy when the user receives Physical Damage
+						 
+
+						
+							
+								
+									[ Garm Baby Card Combo ]
+								 
+							
+							
+								
+									Atk and MAtk +5 per refine rate of the weapon
+								 
+							
+							
+								
+									Further increases physical and magical damage against Water property targets by 1% per 2 refine rate of the weapon
+								 
+							
+						
+					
+				
+			
+			
+				
+					Ktullanux Card
+				 
+
+				
+					
+						
+							Increases damage against Fire Property monsters by 50%
+						 
+					
+					
+						
+							Add a 5% chance of auto casting Level 10 Frost Nova on an enemy when the user receives Physical Damage
+						 
+					
+					
+						
+							Increases the damage of Cold Bolt, Frost Diver, Frost Nova, Freezing Spear, and Storm Gust by 5%
+						 
+
+						
+							
+								
+									[ Stormy Knight Card ]
+								 
+							
+							
+								
+									Increases the damage of Cold Bolt, Frost Diver, Frost Nova, Freezing Spear, and Storm Gust by 1% per 3 refine rate of the Weapon
+								 
+							
+						
+					
+				
+			
+			
+				
+					Stormy Knight Card
+				 
+
+				
+					
+						
+							Atk +1% per refine rate of the Weapon
+						 
+					
+					
+						
+							MAtk +1% per 3 refine rate of the Weapon
+						 
+					
+					
+						
+							Add a 2% chance of auto casting Level 2 Storm Gust on the enemy when attacking. If worn by Mage, Acolyte, or Ninja classes, instead casts level 5 Storm Gust
+						 
+					
+					
+						
+							Has 25% chance of Freezing an enemy when attacking
+						 
+					
+				
+			
+		
+	
+	
+		Revamped Tier 2 Items
+		
+			
+				Valkyrie Helm
+				
+					
+						DEX +7
+					
+					
+						STR +7
+					
+					
+						Reduce Damage from Demi-Humans by 10%
+					
+					
+						Receive 10% more Damage from Shadow attacks
+					
+					
+						Reduce After-Cast Delay by 5%
+					
+					
+						If worn with Tier 2 Valkyrie Armor grants Str +1 and Vit +1
+					
+					
+						If worn with Tier 2 Valkyrie Manteau grants Int +1 and Dex +1
+					
+					
+						If worn with Tier 2 Valkyrie Shoes grants Agi +1 and Luk +1
+					
+				
+			
+			
+				Valkyrie Armor
+				
+					
+						All Stats +1
+					
+					
+						Immune to Freeze
+					
+					
+						Indestructible
+					
+					
+						[Mage, Archer, Acolyte, Sith, Ninja]
+						
+							
+								50% Resistance to Silence
+							
+						
+					
+					
+						[Swordsman, Merchant, Thief, Jedi, Gunslinger]
+						
+							
+								50% Resistance to Stun
+							
+						
+					
+					
+						Max HP &amp; SP +3%
+					
+					
+						ATK + 2%
+					
+					
+						MATK +2%
+					
+				
+			
+			
+				Valkyrie Shield
+				
+					
+						MDEF +10
+					
+					
+						Immune to Stone Curse
+					
+					
+						Indestructible
+					
+					
+						Reduce Damage from Water, Fire, Undead &amp; Shadow by 25%.
+					
+					
+						Reduce Damage from Earth, Wind &amp; Holy by 5%.
+					
+					
+						Reflect +5%
+					
+				
+			
+			
+				Valkyrie Shoes
+				
+					
+						Immune to Sleep
+					
+					
+						Movement Speed +10%
+					
+					
+						Indestructible
+					
+					
+						MaxHP &amp; MaxSP + 7.5%
+					
+					
+						[Mage, Archer, Acolyte, Sith &amp; Ninja]
+						
+							
+								MaxHP + 2.5%; additional MaxHP + [1 * (BaseLVL / 10)]%
+							
+						
+					
+					
+						[Swordsman, Merchant, Thief, Jedi &amp; Gunslinger]
+						
+							
+								MaxSP + 2.5%; additional MaxSP + [1 * (JobLVL / 10)]%
+							
+						
+					
+				
+			
+			
+				Nile Rose
+				
+					
+						All Stats +5
+					
+					
+						ATK &amp; MATK +2%
+					
+				
+			
+			
+				Kakashi's Head Protector
+				
+					
+						DEX +20
+					
+					
+						Dramatically Increases Movement Speed
+					
+					
+						Receive -50% DMG from Fire
+					
+					
+						Receive +25% DMG from Water
+					
+					
+						Increase Range DMG by +8%
+					
+				
+			
+			
+				Traveler's Hat
+				
+					
+						LUK +12
+					
+					
+						AGI +4
+					
+					
+						STR +5
+					
+					
+						CRIT Rate +15
+					
+					
+						CRIT Damage +9%
+					
+				
+			
+		
+	
+	
+		Fixed the Streamer Megaphone Cooldown issue.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Fixed the Garment Wing Issue on Jedi, Sith and Padawan Classes.
+	
+	
+		Fixed the Jejecap Regeneration Effect.
+	
+	
+		Fixed the Aurodium Set Effects
+	
+	
+		Fixed the Aurodium Set Items where they cannot be equipped by Sith, Jedi and Padawan classes.
+	
+	
+		Updated Chain of Commandments headgear location.
+	
+	
+		Fixed the Guild Hall Punching Bag issue where Siths clone them and cause errors.
+	
+	
+		Fixed the Baby Penguin headgear description.
+	
+	
+		Fixed the Deviruchi Headphones' automatic costume status.
+	
+	
+		Fixed the Twin Pom Pom's automatic costume status.
+	
+
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Lowered the WoE: SE Guardian Stone HP from 40m down to 10m.
+	
+	
+		Lowered the WoE: SE Barricade HP from 20m down to 5m.
+	
+	
+		Increased the WoE: SE Guardian Stone Repair Cooldown from 5 minutes to 15 minutes.
+	
+	
+		Disabled Yggdrasil Leaf in Training Ground (@go 15)
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Updated Website 
+		The website is not 100% complete but all essential functions are working. Some content will still be placeholders and will be updated as we go without prior notice. Please report any issues so we can fix them ASAP.
+	
+	
+		Game Server Host Move 
+		The server is now located in Germany but the old host location in Hong Kong has not been deactivated in case we need to move back. Our initial tests seem to be fine so we're moving on to live testing with full player base.
+	
+
+
+
+	 
+ 
+
+
+	It is strongly recommended that you update your DarkRO Rebirth Client often to avoid any errors and inconveniences in-game. Please download the latest client on our Website's Downloads Page.]]></description><pubDate>Wed, 13 Jan 2021 22:05:41 +0000</pubDate></item><item><title>December 23, 2020  - C-3PO's Maintenance Notes</title><link><![CDATA[https://dark-ro.com/forum/topic/5751-december-23-2020-c-3pos-maintenance-notes/?do=findComment&comment=31691]]></link><description>Attention citizens of the republic!
+ 
+
+
+	 
+ 
+
+
+	The scheduled maintenance was a success and the server's start sequence was completed without any issues. DarkRO Rebirth is now running at a self-sustained state and you should be able to perform your normal routines immediately after patching your client.
+ 
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Gepard Update
+	
+	
+		Removed a number of headgears from shops
+	
+	
+		Updated the descriptions of Ores from Mining
+	
+	
+		Updated the Mining Guardian monster names
+	
+	
+		Updated the Mining Guardian kill broadcast
+	
+	
+		Allowed the Recruit Siege Supply Box to stack
+	
+	
+		Allowed the Diary Magic Powder to be sold to NPCs.
+	
+	
+		Updated the Equipment Option Scroll descriptions.
+	
+	
+		Updated Rose Sheen Aura description
+	
+	
+		Added delay to the @loginrewards command to avoid unnecessary server load.
+	
+	
+		Added a warning to the Costume NPC to avoid wrong item conversions.
+	
+	
+		Added a weight restriction on the Daily Login Rewards to avoid accidental item loss.
+	
+	
+		Rebalanced Force-Imbued Blade
+	
+	
+		Updated Equipment Option NPC Name to The Armorer
+	
+	
+		Updated The Armorer dialogue
+	
+	
+		Fixed Cradossk (Guild Hall Registration) Dialogue
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Fixed the Atomic Energy Combo effect descriptions.
+	
+	
+		Fixed Vending time limit. Now set to unlimited.
+	
+	
+		Fixed the Guild Announcement where it would not save.
+	
+	
+		Fixed the Evolved Whisper Mask item moves.
+	
+	
+		Fixed the WoE SE Treasure Box Issue.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Changed Prontera Theme - Christmas
+	
+	
+		Guild Hall Updates
+		
+			
+				Guest Access (Level 4) is now working
+			
+			
+				Punching Bags
+			
+		
+	
+	
+		Added New Items
+		
+			
+				KoE Shop
+				
+					
+						Diablo Helm
+					
+					
+						Cat Ears Cape
+					
+					
+						Khalitzburg Helm
+					
+					
+						Dokkebi Mask 
+					
+					
+						Whistle
+					
+				
+			
+			
+				WoE Shop
+				
+					
+						Thanatos Despero Mask
+					
+					
+						Husky Hat
+					
+					
+						UFO Poring Hat
+					
+					
+						Mochiring Hat
+					
+					
+						Shaving Foam
+					
+				
+			
+			
+				PvP Shop
+				
+					
+						Mask of Ifrit
+					
+					
+						Tongue Charm
+					
+					
+						Scuba Mask
+					
+					
+						Thunderstorm Cloud
+					
+					
+						Little Feather Hat
+					
+				
+			
+			
+				Activity Shop
+				
+					
+						Republic Hat
+					
+					
+						Poster Girl Hat
+					
+					
+						Dolor Thanatos Drooping
+					
+					
+						YinYang Earrings
+					
+					
+						Sugared Fruit Stick
+					
+				
+			
+			
+				Vote Shop
+				
+					
+						Crown of Strawberry Prince
+					
+					
+						Thorny Hairband
+					
+					
+						Chain of Commandments
+					
+					
+						Dragonfly Monocle
+					
+					
+						Scissorhand Model
+					
+				
+			
+			
+				Donation Bonus
+				
+					
+						Gram Peony
+					
+					
+						Cat Ears Hat
+					
+					
+						Crow Tengu
+					
+					
+						Snownow Hat
+					
+					
+						Baby Penguin
+					
+					
+						Chilly Breath
+					
+					
+						Snowman Hat
+					
+				
+			
+			
+				Exclusive Bonus
+				
+					
+						Akatsuki Hat
+					
+					
+						Christmas Box
+					
+					
+						Light Thunderstroke
+					
+					
+						Dark Thunderstroke
+					
+				
+			
+		
+	
+	
+		Added New Valkyrie Helm Variants
+		
+			
+				Sanngrior's Valkyrie Helm (Red)
+			
+			
+				Kara's Valkyrie Helm (Black)
+			
+			
+				Herja's Valkyrie Helm (Venom)
+			
+			
+				Geiravor's Valkyrie Helm (Geo)
+			
+			
+				Eir's Valkyrie Helm (Mystic)
+			
+		
+	
+	
+		Added New VH Variant Quest. (Somewhere in Sky Garden)
+	
+
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Password Reset on the website is now fixed.
+	
+
+
+
+	 
+ 
+
+
+	It is strongly recommended that you update your DarkRO Rebirth Client often to avoid any errors and inconveniences in-game. Please download the latest client on our Website's Downloads Page.</description><pubDate>Tue, 22 Dec 2020 23:25:58 +0000</pubDate></item><item><title>December 1, 2020  - C-3PO's Maintenance Notes</title><link><![CDATA[https://dark-ro.com/forum/topic/5642-december-1-2020-c-3pos-maintenance-notes/?do=findComment&comment=31223]]></link><description><![CDATA[Attention citizens of the republic!
+ 
+
+
+	 
+ 
+
+
+	The scheduled maintenance was a success and the server's start sequence was completed without any issues. DarkRO Rebirth is now running at a self-sustained state and you should be able to perform your normal routines immediately after patching your client.
+ 
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Guild Hall Update
+		
+			
+				Removed all existing Guild Turfs
+			
+			
+				All existing Guild Halls will be reset.
+			
+			
+				Added New Pricing Packages. (Please check Cradossk before finalizing your registration)
+			
+			
+				IMPORTANT NOTE: The Leader Password is an additional security measure when interacting with Jah Zapar (Guest Access NPC). Only your Guild Master should know this.
+			
+			
+				Future Update: Special WoE Warper, Training Dummy, Guest Access
+			
+		
+	
+	
+		Removed graymap.grf
+	
+	
+		Added proper labels to Star Wars Box items.
+	
+	
+		Pets re-enabled in Towns
+	
+	
+		Dark &amp; Light Thunderstroke are now automatically Costumes.
+	
+	
+		Disabled @warp when in the Training Grounds map.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Fixed Force-Imbued Blade where it gives gives extra INT. ATK also fixed.
+	
+	
+		Fixed Kamen Rider Helm Slot
+	
+	
+		Fixed Kamen Rider Helm Script
+	
+	
+		Fixed Hollow Mask 2.0 Slot
+	
+	
+		Fixed DB and BB restriction in several maps.
+	
+	
+		Fixed level requirement in Training Grounds (@go 15)
+	
+	
+		Fixed Talisman Descriptions.
+	
+	
+		Fixed Assassin Cross Card multiplier script error.
+	
+	
+		Removed item restrictions from guild_vs maps.
+	
+	
+		Fixed Zed's Staff error from the THQ.
+	
+	
+		Fixed Izlude Town non-walkable cells.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Daily Login Rewards System
+		
+			
+				@loginrewards - Checks your claim status.
+			
+			
+				@loginrewards claim - Claims your Daily Login Reward.
+			
+			
+				Restricted to 1 per MAC.
+			
+		
+	
+	
+		Equipment Option System - Adds a separate stat bonus to your equipment.
+		
+			
+				The Armorer is located in Einbech. Use @guide to find her.
+			
+			
+				Upper HG - HP and SP Bonuses
+			
+			
+				Armor - Stat Bonuses
+			
+			
+				Shield - Race Bonuses
+			
+			
+				Garment - Property Bonuses
+			
+			
+				Footgear - Damage Bonuses
+			
+			
+				Requires a special Equipment Option Scroll obtainable from Monster Arena, Mining, Mine Guardian, Events, etc.
+			
+		
+	
+	
+		Mining System - 2 Week Promo/Beta Release! - Still being polished. 
+		Mine for Ores that can be used for different quests and excited rewards!
+		
+			
+				A complete guide will be posted soon. For now, the Mining NPCs around the stone locations can explain the mechanics.
+			
+			
+				Entrance Quest is waived for the first 2 weeks but requires 20 Credits per warp.
+			
+			
+				How to get there - Find Karam Pucci in Alberta. Use @guide to find him.
+			
+			
+				Other Restrictions
+				
+					
+						Uses 1 Old Pick (7318) per attempt.
+					
+					
+						Must be 255/100
+					
+					
+						Must wear Safety Helm (5009) or Mine Hat (5031)
+					
+					
+						Must wear Safety Boots (2413) - Dropped by RSX 0806
+					
+					
+						Must wear 2pcs Safety Rings (2615)
+					
+					
+						Can only use the Rock Ridge Fly Wing.
+					
+					
+						PK  is Off.
+					
+				
+			
+			
+				Miner Rank &amp; Stones
+				
+					
+						Lv. 0: Candidate (Thorilide)
+					
+					
+						Lv. 1: Rookie (Agrocite)
+					
+					
+						Lv. 2: Apprentice (Beskar)
+					
+					
+						Lv. 3: Worker (Kallistan Gem)
+					
+					
+						Lv. 4: Pitman (Firkrann Crystal)
+					
+					
+						Lv. 5: Expert (Eraladium)
+					
+					
+						Lv. 6: Craftsman (Mirkanite)
+					
+					
+						Lv. 7: Master (Sun Crystal + Corusca Gem)
+					
+				
+			
+		
+	
+	
+		New Headgear Rotation
+		
+			
+				Exclusive Donation
+				
+					
+						Red Force Aura (L&amp;M)
+					
+					
+						Cyan Force Aura (L&amp;M)
+					
+				
+			
+			
+				Exclusive Donation Bonus
+				
+					
+						Amidamaru Spirit (M)
+					
+					
+						Blade of Dragon (M)
+					
+					
+						Ruby Thunderstroke(L)
+					
+					
+						Mystic Thunderstroke(L)
+					
+					
+						Naruto Hairband
+					
+				
+			
+			
+				Donation Bonus
+				
+					
+						Flying Galapago
+					
+					
+						Magical Feather
+					
+					
+						Glasses Without Lens
+					
+					
+						Goldfish Sun Hat
+					
+					
+						Blue Eremes Scarf
+					
+					
+						Smoking Pipe
+					
+				
+			
+			
+				Activity Shop
+				
+					
+						Anemos Mask
+					
+					
+						Foxtail in Mouth
+					
+					
+						Monochrome Cap
+					
+					
+						Sakura Hairband
+					
+					
+						Long Wolf Ears
+					
+				
+			
+			
+				Vote Shop
+				
+					
+						Misty Ears
+					
+					
+						Black Devil Mask
+					
+					
+						Leopard Ear Hat
+					
+					
+						Cherry Twig in Mouth
+					
+					
+						Yellow Ribbon Hairband
+					
+				
+			
+		
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Removed Agit Lords Script
+	
+	
+		Added back previous WoE Rank NPC in Prontera
+	
+	
+		Reduced Guardian Stone HP from 60m to 45m
+	
+	
+		Reduced Barricade HP from 40m to 30m
+	
+	
+		Battlegrounds Re-Release on BETA - Observation will continue in the Live Server.
+	
+
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	It is strongly recommended that you update your DarkRO Rebirth Client often to avoid any errors and inconveniences in-game. Please download the latest client on our Website's Downloads Page.]]></description><pubDate>Mon, 30 Nov 2020 23:58:36 +0000</pubDate></item><item><title>November 13, 2020  - C-3PO's Maintenance Notes</title><link><![CDATA[https://dark-ro.com/forum/topic/5565-november-13-2020-c-3pos-maintenance-notes/?do=findComment&comment=30842]]></link><description>Attention citizens of the republic!
+ 
+
+
+	 
+ 
+
+
+	The scheduled maintenance was a success and the server's start sequence was completed without any issues. DarkRO Rebirth is now running at a self-sustained state and you should be able to perform your normal routines immediately after patching your client.
+ 
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Restored normal permanent mapflags in nif_fild01.
+	
+	
+		Moved the @guide images to the center of the screen.
+	
+	
+		Improved Ifrit Card description to prevent confusion.
+	
+	
+		Removed some headgears from WoE Shop, KoE Shop and PvP Shop.
+	
+	
+		Added new headgears
+		
+			
+				PvP Shop
+				
+					
+						Lude Mask
+					
+					
+						Happy Poop Hat
+					
+					
+						Silk Hat of Earth
+					
+					
+						Queen Anne's Revenge
+					
+					
+						Flower Pot Mask
+					
+				
+			
+			
+				WoE Shop
+				
+					
+						Emoticon Pif
+					
+					
+						Campus Festival
+					
+					
+						Lupus Hair
+					
+					
+						White Tomboy Fairy Ears
+					
+					
+						White Rogue Cape
+					
+				
+			
+			
+				KoE Shop
+				
+					
+						Emoticon Slur
+					
+					
+						Protect Feathers
+					
+					
+						Hunting Cap of Gust
+					
+					
+						Panda Hoody
+					
+					
+						King Poring Hat
+					
+				
+			
+		
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Fixed WoE Points where it would keep giving points on every portal.
+	
+	
+		Fixed Dragon Wings Upgrade dialogue.
+	
+	
+		Fixed Halter Lead bug where it would become permanent after expiration and disallows you from performing certain actions.
+	
+	
+		Fixed Geo Dragon Wing's lacking 5 LUK stat.
+	
+	
+		Fixed the comma in @whosell prices.
+	
+	
+		Removed the +1 stat from Kirin Wings.
+	
+	
+		Fixed Halloween Hat Name
+	
+	
+		Fixed the Kamen Rider Helm script.
+	
+	
+		Renamed one of the Hallow Masks to Hallow Mask 2.0.
+	
+	
+		Fixed Hallow Mask script.
+	
+	
+		Added back slots to Hollow Mask, Hollow Mask 2.0 and Kamen Rider Helm.
+	
+	
+		Fixed Icarus Spear description where it displayed the wrong weight value.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Added Watto in Morocc that offers event prizes. Items not yet available, NPC hidden temporarily.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Fixed pvp announcement and @listenpk function.
+	
+
+
+
+	 
+ 
+
+
+	
+ 
+
+
+	 
+ 
+
+
+	
+		Updated all files in Downloads Page last November 3, 2020.
+	
+
+
+
+	 
+ 
+
+
+	It is strongly recommended that you update your DarkRO Rebirth Client often to avoid any errors and inconveniences in-game. Please download the latest client on our Website's Downloads Page.</description><pubDate>Thu, 12 Nov 2020 20:33:00 +0000</pubDate></item></channel></rss>

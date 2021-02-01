@@ -1,0 +1,22 @@
+@import "fontawesome/all.css" screen;
+@import "fonts.css" screen;
+@import "bootstrap/bootstrap.min.css" screen;
+@import "jquery.ellipsis.css" screen;
+@import "animista.css" screen;
+@import "slick.css" screen;
+@import "slick-theme.css" screen;
+@import "aos.css" screen;
+@import "cursor.css" screen;
+@import "../js/lity/lity.css" screen;
+
+@import "responsive-0.css" screen;
+/*  @import "responsive-360.css" all and (min-width: 360px);	nHD	 -- responsive-0 already control this part */
+@import "responsive-540.css" all and (min-width: 540px);	/* qHD	*/				/* 576	*/
+@import "landscape-540.css" all and (max-height: 360px) and (min-width: 540px);	/* nHD-landscape	*/
+@import "responsive-720.css" all and (min-width: 720px);						/*	768	*/
+@import "responsive-900.css" all and (min-width: 900px);				/* 960	*/	/* 992	*/
+@import "landscape-900.css" all and (max-height: 540px) and (min-width: 900px);	/* qHD-landscape	*/
+@import "responsive-1200.css" all and (min-width: 1200px);	/* HD	*/	/* 1280	*/	/* 1200	*/
+@import "responsive-1600.css" all and (min-width: 1600px);	/* HD+	*/
+@import "responsive-1920.css" all and (min-width: 1920px);	/* FHD	*/
+@import "responsive-2560.css" all and (min-width: 2560px);	/* 4K	*/
