@@ -105,6 +105,21 @@
 			<?php endif ?>
 		</td>
 	</tr>
+	<tr>
+		<th><?php echo htmlspecialchars('Gepard Unique') ?></th>
+		<td colspan="3">
+			<?php if ($account->last_unique_id): ?>
+				<?php if ($auth->actionAllowed('account', 'index')): ?>
+					<?php echo $this->linkToAccountSearch(array('last_unique_id' => $account->last_unique_id), $account->last_unique_id) ?>
+				<?php else: ?>
+					<?php echo htmlspecialchars($account->last_unique_id) ?>
+				<?php endif ?>
+			<?php else: ?>
+				<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span>
+			<?php endif ?>
+			| <a href="<?php echo $this->url('gban', 'add&guid='.$account->last_unique_id) ?>"><b>Ban this user!</b></a>
+		</td>
+	</tr>
 	<?php $banconfirm=htmlspecialchars(str_replace("'", "\\'", Flux::message('AccountBanConfirm'))) ?>
 	<?php if ($showTempBan): ?>
 	<tr>
@@ -183,6 +198,44 @@
 </table>
 <?php endif ?>
 
+<?php if ($auth->allowedToViewAccountBanLog && $gbanInfo): ?>
+<h3><?php echo htmlspecialchars(sprintf(Flux::message('AccountBanLogSubHeading'), $account->userid)) ?></h3>
+<?php if(isset($gbanInfo['status'])): ?>
+<div style="padding: 0 10px 10px; color: #aa0000">
+	Gepard UID Banned <strong>Active!</strong>
+	| <a href="<?php echo $this->url('gban', 'remove&guid='.$account->last_unique_id) ?>"><b>Unban this user!</b></a>
+</div>
+<?php endif; ?>
+<table class="vertical-table">
+	<tr>
+		<th><?php echo htmlspecialchars(Flux::message('GBanBannedGeIDLabel')) ?></th>
+		<th><?php echo htmlspecialchars(Flux::message('GBanBanDateLabel')) ?></th>
+		<th><?php echo htmlspecialchars(Flux::message('GBanBanExpireLabel')) ?></th>
+
+		<th><?php echo htmlspecialchars(Flux::message('GBanBanVioNameLabel')) ?></th>
+		<th><?php echo htmlspecialchars(Flux::message('GBanBanVioAIDLabel')) ?></th>
+
+		<th><?php echo htmlspecialchars(Flux::message('BanLogBannedByLabel')) ?></th>
+		<th><?php echo htmlspecialchars(Flux::message('BanLogBanReasonLabel')) ?></th>
+	</tr>
+	<?php foreach ($gbanInfo['log'] as $ban): ?>
+	<tr>
+		<td><?php echo htmlspecialchars($ban->unique_id) ?></td>
+		<td><?php echo htmlspecialchars($this->formatDateTime($ban->block_time)) ?></td>
+		<td><?php echo htmlspecialchars($this->formatDateTime($ban->unban_time)) ?></td>
+		<td><?php echo htmlspecialchars($ban->violator_name) ?></td>
+		<td><?php echo htmlspecialchars($ban->violator_account_id) ?></td>
+		<td><?php if ($auth->allowedToViewAccount): ?>
+				<?php echo $this->linkToAccount($ban->initiator_account_id, $ban->initiator_name) ?>
+			<?php else: ?>
+				<?php echo htmlspecialchars($ban->initiator_name) ?>
+			<?php endif ?></td>
+		<td><?php echo nl2br(htmlspecialchars($ban->reason)) ?></td>
+	</tr>
+	<?php endforeach ?>
+</table>
+<?php endif ?>
+
 <?php foreach ($characters as $serverName => $chars): $zeny = 0; ?>
 	<h3><?php echo htmlspecialchars(sprintf(Flux::message('AccountViewCharSubHead'), $serverName)) ?></h3>
 	<?php if ($chars): ?>
@@ -225,7 +278,7 @@
 						<?php echo htmlspecialchars($char->guild_name) ?>
 					<?php endif ?>
 				</td>
-			<?php else: ?>	
+			<?php else: ?>
 				<td colspan="2" align="center"><span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span></td>
 			<?php endif ?>
 			<td>

@@ -76,8 +76,8 @@
 		<?php echo $this->dateField('last_login_after') ?>
 		<label for="use_last_login_before">&mdash;</label>
 		<input type="checkbox" name="use_last_login_before" id="use_last_login_before"<?php if ($params->get('use_last_login_before')) echo ' checked="checked"' ?> />
-		<?php echo $this->dateField('last_login_before') ?>		
-		
+		<?php echo $this->dateField('last_login_before') ?>
+
 		<input type="submit" value="<?php echo htmlspecialchars(Flux::message('SearchButton')) ?>" />
 		<input type="button" value="<?php echo htmlspecialchars(Flux::message('ResetButton')) ?>" onclick="reload()" />
 	</p>
@@ -98,6 +98,7 @@
 		<th><?php echo $paginator->sortableColumn('birthdate', Flux::message('AccountBirthdateLabel')) ?></th>
 		<th><?php echo $paginator->sortableColumn('lastlogin', Flux::message('LastLoginDateLabel')) ?></th>
 		<th><?php echo $paginator->sortableColumn('last_ip', Flux::message('LastUsedIpLabel')) ?></th>
+		<th><?php echo $paginator->sortableColumn('last_unique_id', "Gepard Unique") ?></th>
 		<!-- <th><?php echo $paginator->sortableColumn('reg_date', 'Register Date') ?></th> -->
 	</tr>
 	<?php foreach ($accounts as $account): ?>
@@ -154,6 +155,13 @@
 		<td>
 			<?php if ($account->last_ip): ?>
 				<?php echo $this->linkToAccountSearch(array('last_ip' => $account->last_ip), $account->last_ip) ?>
+			<?php else: ?>
+				<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span>
+			<?php endif ?>
+		</td>
+		<td>
+			<?php if ($account->last_unique_id): ?>
+				<?php echo $this->linkToAccountSearch(array('last_unique_id' => $account->last_unique_id), $account->last_unique_id) ?>
 			<?php else: ?>
 				<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span>
 			<?php endif ?>

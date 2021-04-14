@@ -39,6 +39,7 @@ else {
 	$password         = $params->get('password');
 	$email            = $params->get('email');
 	$lastIP           = $params->get('last_ip');
+	$last_unique_id   = $params->get('last_unique_id');
 	$gender           = $params->get('gender');
 	$accountState     = $params->get('account_state');
 	$accountGroupIdOp = $params->get('account_group_id_op');
@@ -51,13 +52,13 @@ else {
 	$birthdateB       = $params->get('birthdate_before_date');
 	$lastLoginDateA   = $params->get('last_login_after_date');
 	$lastLoginDateB   = $params->get('last_login_before_date');
-	
+
 	if ($username) {
 		$sqlpartial .= "AND (login.userid LIKE ? OR login.userid = ?) ";
 		$bind[]      = "%$username%";
 		$bind[]      = $username;
 	}
-	
+
 	if ($searchPassword && $password) {
 		if ($useMD5) {
 			$sqlpartial .= "AND login.user_pass = MD5(?) ";
@@ -69,24 +70,30 @@ else {
 			$bind[]      = $password;
 		}
 	}
-	
+
 	if ($email) {
 		$sqlpartial .= "AND (login.email LIKE ? OR login.email = ?) ";
 		$bind[]      = "%$email%";
 		$bind[]      = $email;
 	}
-	
+
 	if ($lastIP) {
 		$sqlpartial .= "AND (login.last_ip LIKE ? OR login.last_ip = ?) ";
 		$bind[]      = "%$lastIP%";
 		$bind[]      = $lastIP;
 	}
-	
+
+	if ($last_unique_id) {
+		$sqlpartial .= "AND (login.last_unique_id LIKE ? OR login.last_unique_id = ?) ";
+		$bind[]      = "%$last_unique_id%";
+		$bind[]      = $last_unique_id;
+	}
+
 	if (in_array($gender, array('M', 'F'))) {
 		$sqlpartial .= "AND login.sex = ? ";
 		$bind[]      = $gender;
 	}
-	
+
 	if ($accountState) {
 		if ($accountState == 'normal') {
 			$sqlpartial .= 'AND (login.state = 0 AND login.unban_time = 0 AND (created.confirmed = 1 OR created.confirmed IS NULL)) ';
@@ -101,13 +108,13 @@ else {
 			$sqlpartial .= 'AND login.unban_time > 0 ';
 		}
 	}
-	
+
 	if (in_array($accountGroupIdOp, $opValues) && trim($accountGroupID) != '') {
 		$op          = $opMapping[$accountGroupIdOp];
 		$sqlpartial .= "AND login.group_id $op ? ";
 		$bind[]      = $accountGroupID;
 	}
-	
+
 	if (in_array($balanceOp, $opValues) && trim($balance) != '') {
 		$op  = $opMapping[$balanceOp];
 		if ($op == '=' && $balance === '0') {
@@ -118,18 +125,18 @@ else {
 			$bind[]      = $balance;
 		}
 	}
-	
+
 	if (in_array($loginCountOp, $opValues) && trim($loginCount) != '') {
 		$op          = $opMapping[$loginCountOp];
 		$sqlpartial .= "AND login.logincount $op ? ";
 		$bind[]      = $loginCount;
 	}
-	
+
 	if ($birthdateB && ($timestamp = strtotime($birthdateB))) {
 		$sqlpartial .= 'AND login.birthdate <= ? ';
 		$bind[]      = date('Y-m-d', $timestamp);
 	}
-	
+
 	if ($birthdateA && ($timestamp = strtotime($birthdateA))) {
 		$sqlpartial .= 'AND login.birthdate >= ? ';
 		$bind[]      = date('Y-m-d', $timestamp);
@@ -139,7 +146,7 @@ else {
 		$sqlpartial .= 'AND login.lastlogin <= ? ';
 		$bind[]      = date('Y-m-d', $timestamp);
 	}
-	
+
 	if ($lastLoginDateA && ($timestamp = strtotime($lastLoginDateA))) {
 		$sqlpartial .= 'AND login.lastlogin >= ? ';
 		$bind[]      = date('Y-m-d', $timestamp);
@@ -155,7 +162,7 @@ $paginator->setSortableColumns(array(
 	'login.account_id' => 'asc', 'login.userid', 'login.user_pass',
 	'login.sex', 'group_id', 'state', 'balance',
 	'login.email', 'logincount', 'lastlogin', 'last_ip',
-	'reg_date'
+	'reg_date', 'last_unique_id'
 ));
 
 $sql  = $paginator->getSQL("SELECT login.*, {$creditColumns}, {$accountColumns}, {$createColumns} FROM {$server->loginDatabase}.login $sqlpartial");
