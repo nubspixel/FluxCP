@@ -114,10 +114,10 @@
 				<?php else: ?>
 					<?php echo htmlspecialchars($account->last_unique_id) ?>
 				<?php endif ?>
+			| <a href="<?php echo $this->url('gban', 'add', [ 'guid' => $account->last_unique_id ]) ?>"><b>Ban this user!</b></a>
 			<?php else: ?>
 				<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span>
 			<?php endif ?>
-			| <a href="<?php echo $this->url('gban', 'add&guid='.$account->last_unique_id) ?>"><b>Ban this user!</b></a>
 		</td>
 	</tr>
 	<?php $banconfirm=htmlspecialchars(str_replace("'", "\\'", Flux::message('AccountBanConfirm'))) ?>
@@ -203,7 +203,7 @@
 <?php if(isset($gbanInfo['status'])): ?>
 <div style="padding: 0 10px 10px; color: #aa0000">
 	Gepard UID Banned <strong>Active!</strong>
-	| <a href="<?php echo $this->url('gban', 'remove&guid='.$account->last_unique_id) ?>"><b>Unban this user!</b></a>
+	| <a href="<?php echo $this->url('gban', 'remove', [ 'guid' => $account->last_unique_id ]) ?>"><b>Unban this user!</b></a>
 </div>
 <?php endif; ?>
 <table class="vertical-table">

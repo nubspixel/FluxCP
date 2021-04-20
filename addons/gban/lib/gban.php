@@ -27,8 +27,8 @@ class GBan
 		$sql .= "VALUES (?, ?, ?)";
 		$sth  = $this->connection->getStatement($sql);
 		if($sth->execute(array($unique_id, $unbanTime, $banReason))) {
-			$sql  = "INSERT INTO gepard_block_log (unique_id, block_time, unban_time, reason, initiator_name, initiator_account_id) ";
-			$sql .= "VALUES (?, NOW(), ?, ?, ?, ?) ";
+			$sql  = "INSERT INTO gepard_block_log (unique_id, block_time, unban_time, reason, violator_name, violator_account_id, initiator_name, initiator_account_id) ";
+			$sql .= "VALUES (?, NOW(), ?, ?, '', 0, ?, ?) ";
 			$sth  = $this->connection->getStatement($sql);
 			return $sth->execute(array($unique_id, $unbanTime, $banReason, $bannedBy, $bannedByAid));
 		} else {
