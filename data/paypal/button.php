@@ -1,5 +1,16 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
+$donate_bundles = [
+	['$' => '4.99',    'cp' => 100],
+	['$' => '9.99',    'cp' => 250],
+	['$' => '19.99',   'cp' => 400],
+	['$' => '49.99',   'cp' => 1000],
+	['$' => '99.99',   'cp' => 2500],
+	['$' => '149.99',  'cp' => 3500],
+	['$' => '199.99',  'cp' => 4500],
+];
+$index = $amount;
+$amount = $donate_bundles[$index]['$'];
 
 if (empty($amount)) {
 	return false;
@@ -28,7 +39,9 @@ $itemName           = htmlspecialchars(sprintf('Donation Credits: %s CREDIT(s)',
 <input type="hidden" name="tax" value="0" />
 <input type="hidden" name="lc" value="US" />
 <input type="hidden" name="bn" value="PP-DonationsBF" />
-<p style="text-align: center"><input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"
-	name="submit" alt="PayPal - The safer, easier way to pay online!" /></p>
-<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+
+<button class="btn btn-outline-primary btn-lg btn-block" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<span><?php echo $donate_bundles[$index]['cp'] ?>x CREDIT(s)</span>
+	<span class="text-bold"><?php echo $donationCurrency ?> <?php echo $donate_bundles[$index]['$'] ?></span>
+</button>
 </form>
